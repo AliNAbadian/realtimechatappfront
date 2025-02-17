@@ -1,5 +1,8 @@
 import React from "react";
-import InfoCard from "./InfoCard";
+import dynamic from "next/dynamic";
+
+// Dynamically import InfoCard
+const InfoCard = dynamic(() => import("./InfoCard"));
 
 const ChatSideBar = ({ user }: { user: any }) => {
   return (
