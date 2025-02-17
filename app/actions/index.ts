@@ -5,7 +5,11 @@ import { signIn, signOut } from "@/auth";
 export async function doSocialLogin(formData: FormData) {
   const action = formData.get("action");
   if (action) {
-    await signIn(action.toString(), { redirectTo: "/chat" });
+    try {
+      await signIn(action.toString(), { redirectTo: "/chat" });
+    } catch (error) {
+      console.log(error);
+    }
   } else {
     console.error("No action provided");
   }
